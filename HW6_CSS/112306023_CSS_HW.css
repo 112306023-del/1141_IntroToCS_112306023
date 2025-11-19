@@ -1,0 +1,196 @@
+body {
+    margin: 0;
+    padding: 4px 2px;                
+    background-color: white;       
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: flex;
+    justify-content: center;       
+}
+
+.main-container {
+    width: 100%;                 
+    background-color: #ffffff;    
+
+    display: flex;   
+
+    border-radius: 12px;        
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);  
+    overflow: hidden;          
+}
+
+.left-panel {
+    width: 30%;               
+    background-color: #4c6fbf;      
+    display: flex;
+    flex-direction: column;
+}
+
+.right-panel {
+    width: 70%;
+    padding: 25px 30px;
+    background-color: #ffffff;
+}
+
+.photo-panel img {
+    width: 100%;
+    display: block;        
+    object-fit: cover;    
+}
+
+.text-content {
+    color: white;
+    padding: 20px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.name {
+    margin: 0;
+    font-size: 24px;
+}
+
+.subtitle {
+    margin: 4px 0 16px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* 小標題 */
+.about-me h2,
+.contact-info h2 {
+    font-size: 16px;
+    margin: 12px 0 6px;
+    border-bottom: 2px solid #dcdcdc;
+}
+
+/* 內文 & 列表 */
+.about-me p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0 0 10px;
+}
+
+.contact-info ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0 0 12px;
+}
+
+.contact-info li {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.nccu-logo {
+    margin-top: auto;  
+    margin-bottom: 4px;
+}
+
+.nccu-logo img {
+    width: 70%;
+    max-width: 140px;
+}
+
+.section {
+    margin-bottom: 32px;
+}
+
+.section-title {
+    font-size: 22px;
+    margin: 0 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #dcdcdc;   
+}
+
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px; 
+}
+
+.edu-item {
+    display: flex;
+    align-items: baseline;   
+    gap: 20px;              
+}
+
+.year {
+    width: 120px;          
+    font-weight: bold;
+    color: #333;
+}
+
+/* 學校/科系描述 */
+.description {
+    flex-grow: 1;
+    color: #555;
+    line-height: 1.4;
+    font-size: 15px;
+}
+
+
+.skill-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: #e5eefc;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.homework-lab-container {
+    display: flex;
+    gap: 24px;
+}
+
+
+.hm-column,
+.lab-column {
+    background-color: #f5f7fa;
+    padding: 16px;
+    border-radius: 10px;
+    width: 50%;
+}
+
+.hm-column h3,
+.lab-column h3 {
+    margin-top: 0;
+}
+
+.music-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 16px;
+    text-align: center;
+}
+
+.music-item {
+    width: 22%;
+}
+
+.music-item a {
+    text-decoration: none;
+    color: #333;                   
+}
+
+.music-item img {
+    width: 130px;
+    aspect-ratio: 1 / 1;             
+    object-fit: cover;        
+    border-radius: 10px;             
+    display: block;
+    margin: 0 auto 8px;  
+}
+
+.music-note {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
