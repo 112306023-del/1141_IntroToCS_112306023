@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>112306023_HW6_1A2B</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            margin: 20px;
+        }
+        #recordBox {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 350px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+
+    <h1>112306023_HW6_1A2B</h1>
+
+
+    <label for="guessInput">Enter 4 unique numbers</label>
+    <input type="text" id="guessInput" maxlength="4">
+    <button id="guessBtn">Guess!</button>
+
+   
+    <div id="recordBox">
+        <p>Game Record：</p>
+        <div id="record"></div>
+    </div>
+</div>
+
+<script>
+
+    let answer = generateAnswer();
+    let attemptCount = 0;
+
+    function generateAnswer() {
+        let digits = [];
+        while (digits.length < 4) {
+            let d = Math.floor(Math.random() * 10);
+            if (!digits.includes(d)) {
+                digits.push(d);
+            }
+        }
+        return digits.join(''); 
+    }
+
+    document.getElementById("guessBtn").addEventListener("click", handleGuess);
+    document.getElementById("guessInput").addEventListener("keydown", function(e){
+        if(e.key === "Enter") handleGuess();
+    });
+
+    function handleGuess() {
+        let input = document.getElementById("guessInput").value.trim();
+        
+
+        if (!/^\d{4}$/.test(input)) {
+            alert("請輸入剛好 4 位數字！");
+            return;
+        }
+   
+        if (hasDuplicateDigit(input)) {
+            alert("輸入中含有重複數字，請輸入 4 個不重複的數字！");
+            return;
+        }
+
+        attemptCount++;
+
+ 
+        let result = calculateAB(input, answer);
+        let recordDiv = document.getElementById("record");
+        recordDiv.innerHTML += `第${attemptCount}次: ${input} → ${result.A}A${result.B}B<br>`;
+
+
+        if (result.A === 4) {
+            alert(`恭喜猜對！答案是 ${answer}。\n總共猜了 ${attemptCount} 次。`);
+            // 若想要重新開始，可解除註解下面兩行
+            // answer = generateAnswer();
+            // attemptCount = 0;
+        }
+
+        document.getElementById("guessInput").value = "";
+    }
+
+    function hasDuplicateDigit(str) {
+        let seen = new Set();
+        for (let ch of str) {
+            if (seen.has(ch)) return true;
+            seen.add(ch);
+        }
+        return false;
+    }
+
+    function calculateAB(guess, ans) {
+        let A = 0, B = 0;
+        for (let i = 0; i < 4; i++) {
+            if (guess[i] === ans[i]) {
+                A++;
+            } else if (ans.includes(guess[i])) {
+                B++;
+            }
+        }
+        return { A, B };
+    }
+</script>
+</body>
+</html>
