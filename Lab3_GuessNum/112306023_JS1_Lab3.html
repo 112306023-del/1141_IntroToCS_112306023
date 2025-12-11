@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>112306023_Number Guessing Game</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+        #result {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>112306023_Number Guessing Game</h1>
+
+
+    <div id="result"></div>
+
+    <script>
+
+        const answer = Math.floor(Math.random() * 100) + 1;
+        let chances = 7;
+        let low = 1;
+        let high = 100;
+        const resultDiv = document.getElementById("result");
+
+
+        while (chances > 0) {
+            let msg =
+                `請輸入 ${low} 到 ${high} 之間的整數。\n` +
+                `你還有 ${chances} 次機會。`;
+
+            let input = window.prompt(msg);
+
+
+            if (input === null || input.trim() === "") {
+                alert("請輸入數字！");
+                continue;   
+            }
+
+            let guess = Number(input);
+
+            if (!Number.isInteger(guess) || guess < low || guess > high) {
+                alert(`請輸入有效範圍內的數字（不能超出 ${low} 到 ${high} ）！`);
+                continue; 
+            }
+
+            chances--;
+
+            if (guess === answer) {
+
+                resultDiv.innerHTML = '<img src="correct.jpg" alt="Correct">';
+                alert(`恭喜你答對了！正確答案是 ${answer}`);
+                break;
+            } else if (guess > answer) {
+                high = guess - 1;
+                alert("太大了！");
+            } else {
+                low = guess + 1;
+                alert("太小了！");
+            }
+
+
+            if (chances === 0) {
+                resultDiv.innerHTML = '<img src="wrong.jpg" alt="Wrong">';
+                alert(`很可惜，次數已用完。正確答案是 ${answer}`);
+            }
+        }
+    </script>
+</body>
+</html>
