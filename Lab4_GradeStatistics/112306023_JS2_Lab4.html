@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>Grade Statistics</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <h1>Grade Statistics</h1>
+
+    <!-- 輸入區 -->
+    <div id="input-area">
+        <input type="number" id="math" placeholder="Math">
+        <input type="number" id="english" placeholder="English">
+        <button id="submitBtn">Submit</button>
+    </div>
+
+    <!-- 成績表 -->
+    <table id="gradeTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Math</th>
+                <th>English</th>
+                <th>Average</th>
+            </tr>
+        </thead>
+
+        <tbody id="gradeBody">
+            <!-- 新增的成績列會插在這裡 -->
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th>Average</th>
+                <th id="mathAvg"></th>
+                <th id="engAvg"></th>
+                <th id="overallAvg"></th>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
